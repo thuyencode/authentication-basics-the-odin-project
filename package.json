@@ -1,7 +1,7 @@
 {
-  "name": "mini-message-board-the-odin-project",
+  "name": "authentication-basics-the-odin-project",
   "version": "1.0.0",
-  "description": "Create Express EJS app with TypeScript",
+  "description": "Authentication Basics | NodeJS Course | The Odin Project",
   "main": "src/index.ts",
   "type": "module",
   "scripts": {
@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/thuyencode/mini-message-board-the-odin-project.git"
+    "url": "git+https://github.com/thuyencode/authentication-basics-the-odin-project.git"
   },
   "keywords": [
     "nodejs",
@@ -23,16 +23,20 @@
   "author": "Thuyen Code",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/thuyencode/mini-message-board-the-odin-project/issues"
+    "url": "https://github.com/thuyencode/authentication-basics-the-odin-project/issues"
   },
-  "homepage": "https://github.com/thuyencode/mini-message-board-the-odin-project#readme",
+  "homepage": "https://github.com/thuyencode/authentication-basics-the-odin-project#readme",
   "devDependencies": {
     "@eslint/js": "^9.10.0",
     "@types/compression": "^1.7.5",
     "@types/ejs": "^3.1.5",
     "@types/eslint__js": "^8.42.3",
     "@types/express": "^4.17.21",
+    "@types/express-session": "^1.18.0",
     "@types/node": "^22.5.5",
+    "@types/passport": "^1.0.16",
+    "@types/passport-local": "^1.0.38",
+    "@types/pg": "^8.11.10",
     "esbuild": "^0.23.1",
     "eslint": "^9.10.0",
     "tsx": "^4.19.1",
@@ -45,6 +49,10 @@
     "ejs": "^3.1.10",
     "express": "^4.21.0",
     "express-async-handler": "^1.2.0",
-    "http-status-ts": "^2.0.1"
+    "express-session": "^1.18.0",
+    "http-status-ts": "^2.0.1",
+    "passport": "^0.7.0",
+    "passport-local": "^1.0.0",
+    "pg": "^8.13.0"
   }
 }
