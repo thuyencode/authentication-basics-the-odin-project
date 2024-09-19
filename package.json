@@ -1,0 +1,50 @@
+{
+  "name": "mini-message-board-the-odin-project",
+  "version": "1.0.0",
+  "description": "Create Express EJS app with TypeScript",
+  "main": "src/index.ts",
+  "type": "module",
+  "scripts": {
+    "build": "esbuild src/index.ts --bundle --minify --packages=external --platform=node --outfile=dist/index.js --format=esm",
+    "dev": "dotenvx run -f .env.development.local -- tsx watch src/index.ts",
+    "start": "dotenvx run -f .env.production.local -- node dist/index.js",
+    "lint": "tsc ; eslint ./src",
+    "populate-db:dev": "dotenvx run -f .env.development.local -- tsx scripts/populate_db.ts",
+    "populate-db:prod": "dotenvx run -f .env.production.local -- tsx scripts/populate_db.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thuyencode/mini-message-board-the-odin-project.git"
+  },
+  "keywords": [
+    "nodejs",
+    "typescript"
+  ],
+  "author": "Thuyen Code",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thuyencode/mini-message-board-the-odin-project/issues"
+  },
+  "homepage": "https://github.com/thuyencode/mini-message-board-the-odin-project#readme",
+  "devDependencies": {
+    "@eslint/js": "^9.10.0",
+    "@types/compression": "^1.7.5",
+    "@types/ejs": "^3.1.5",
+    "@types/eslint__js": "^8.42.3",
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.5.5",
+    "esbuild": "^0.23.1",
+    "eslint": "^9.10.0",
+    "tsx": "^4.19.1",
+    "typescript": "^5.6.2",
+    "typescript-eslint": "^8.6.0"
+  },
+  "dependencies": {
+    "@dotenvx/dotenvx": "^1.14.1",
+    "compression": "^1.7.4",
+    "ejs": "^3.1.10",
+    "express": "^4.21.0",
+    "express-async-handler": "^1.2.0",
+    "http-status-ts": "^2.0.1"
+  }
+}
