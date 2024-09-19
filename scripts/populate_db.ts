@@ -1,13 +1,12 @@
 import pg from 'pg'
 
-const SQL = `
+const SQL_QUERY = `
 CREATE TABLE IF NOT EXISTS
-    messages (
-        id INT NOT NULL PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-        username VARCHAR(255) NOT NULL,
-        text VARCHAR(255) NOT NULL,
-        added TIMESTAMP
-    );`
+  users (
+    id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+    username VARCHAR(255),
+    password VARCHAR(255)
+);`
 
 async function main() {
   console.log('Seeding...')
@@ -15,7 +14,7 @@ async function main() {
   const client = new pg.Client()
 
   await client.connect()
-  await client.query(SQL)
+  await client.query(SQL_QUERY)
   await client.end()
 
   console.log('Done')
