@@ -4,7 +4,7 @@ import session from 'express-session'
 import passport from 'passport'
 import { getPublicPath, getViewsPath } from './libs/utils'
 import { error_handler, undefined_routes_handler } from './middlewares'
-import sign_up_routes from './modules/(authentication)/sign-up/sign-up.routes'
+import { sign_up_routes } from './modules/(authentication)/sign-up'
 import { home_routes } from './modules/home'
 
 const app = e()
