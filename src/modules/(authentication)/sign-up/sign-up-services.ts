@@ -1,13 +1,6 @@
-import pool from '@/db/pool'
+import { insertUser } from '@/db/users.db'
+import type { CreateNewUserArgs } from '@/libs/types'
 
-interface CreateNewUserArgs {
-  username: string
-  password: string
-}
-
-export async function createNewUser({ username, password }: CreateNewUserArgs) {
-  await pool.query('INSERT INTO users (username, password) VALUES ($1, $2)', [
-    username,
-    password
-  ])
+export async function createNewUser(newUser: CreateNewUserArgs) {
+  await insertUser(newUser)
 }

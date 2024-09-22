@@ -1,4 +1,5 @@
 import __dirname from '@/__dirname'
+import { compare, hash } from 'bcrypt-ts'
 import path from 'path'
 
 /**
@@ -21,4 +22,12 @@ export function getPublicPath(fileName: string = '') {
  */
 export function getViewsPath(fileName: string = '') {
   return path.join(__dirname, 'views', fileName)
+}
+
+export async function hashPassword(password: string) {
+  return await hash(password, 8)
+}
+
+export async function verifyPassword(content: string, hash: string) {
+  return await compare(content, hash)
 }

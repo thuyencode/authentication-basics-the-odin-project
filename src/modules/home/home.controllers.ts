@@ -1,5 +1,5 @@
-import expressAsyncHandler from "express-async-handler";
+import expressAsyncHandler from 'express-async-handler'
 
 export const showHomePage = expressAsyncHandler(async (req, res) => {
-  res.render("index");
-});
+  res.render('index', { user: req.user })
+})
