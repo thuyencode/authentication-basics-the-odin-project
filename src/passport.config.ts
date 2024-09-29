@@ -1,7 +1,7 @@
+import { compare } from 'bcrypt-ts'
 import passport from 'passport'
 import { Strategy } from 'passport-local'
 import { selectUserById, selectUserByUsername } from './db/users.db'
-import { verifyPassword } from './libs/utils'
 
 function initPassport() {
   passport.use(
@@ -13,7 +13,7 @@ function initPassport() {
           return done(null, false, { message: 'Incorrect username' })
         }
 
-        const match = await verifyPassword(password, user.password)
+        const match = await compare(password, user.hash)
 
         if (!match) {
           return done(null, false, { message: 'Incorrect password' })

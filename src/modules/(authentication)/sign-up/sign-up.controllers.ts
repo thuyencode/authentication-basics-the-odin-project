@@ -1,4 +1,4 @@
-import { hashPassword } from '@/libs/utils'
+import { genSalt, hash as hashPwd } from 'bcrypt-ts'
 import expressAsyncHandler from 'express-async-handler'
 import { createNewUser } from './sign-up-services'
 
@@ -9,10 +9,11 @@ export const showSignUpPage = expressAsyncHandler(async (req, res) => {
 export const handleSignUpRequest = expressAsyncHandler(
   async (req, res, next) => {
     try {
-      await createNewUser({
-        username: req.body.username,
-        hashedPassword: await hashPassword(req.body.password)
-      })
+      const username = String(req.body.username)
+      const salt = await genSalt(10)
+      const hash = await hashPwd(String(req.body.password), salt)
+
+      await createNewUser({ username, hash })
 
       res.redirect('/')
     } catch (err) {

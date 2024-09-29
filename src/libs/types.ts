@@ -1,4 +1,10 @@
-export interface CreateNewUserArgs {
+export interface StoredUser {
+  id: number
   username: string
-  hashedPassword: string
+  hash: string
+}
+
+export interface SubmittedLoginCredential {
+  username: string
+  password: string
 }
