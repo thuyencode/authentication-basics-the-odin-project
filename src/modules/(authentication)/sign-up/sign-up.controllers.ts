@@ -1,6 +1,6 @@
 import { genSalt, hash as hashPwd } from 'bcrypt-ts'
 import expressAsyncHandler from 'express-async-handler'
-import { createNewUser } from './sign-up-services'
+import { createNewUser } from './sign-up.services'
 
 export const showSignUpPage = expressAsyncHandler(async (req, res) => {
   res.render('sign-up')
